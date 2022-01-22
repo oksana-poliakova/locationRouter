@@ -58,13 +58,37 @@
 			children = (
 				A19179D0279AFC4200EA113D /* AppDelegate.swift */,
 				A19179D2279AFC4200EA113D /* SceneDelegate.swift */,
-				A19179D4279AFC4200EA113D /* ViewController.swift */,
+				A19179E6279C212E00EA113D /* Model */,
+				A19179E5279C212A00EA113D /* View */,
+				A19179E4279C212100EA113D /* Controllers */,
 				A19179D6279AFC4200EA113D /* Main.storyboard */,
 				A19179D9279AFC4400EA113D /* Assets.xcassets */,
 				A19179DB279AFC4400EA113D /* LaunchScreen.storyboard */,
 				A19179DE279AFC4400EA113D /* Info.plist */,
 			);
 			path = "Location Router";
+			sourceTree = "<group>";
+		};
+		A19179E4279C212100EA113D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A19179D4279AFC4200EA113D /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A19179E5279C212A00EA113D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A19179E6279C212E00EA113D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
