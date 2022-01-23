@@ -109,16 +109,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-6Y-fll">
                                         <rect key="frame" x="0.0" y="350" width="390" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Did you mean" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJv-uh-Vg9">
-                                                <rect key="frame" x="30" y="8" width="80" height="15"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you mean" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJv-uh-Vg9">
+                                                <rect key="frame" x="20" y="5" width="80" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address suggestion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f0-tY-gaG">
-                                                <rect key="frame" x="19" y="31" width="134" height="17"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address suggestion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f0-tY-gaG">
+                                                <rect key="frame" x="20" y="24.5" width="134" height="17"/>
                                                 <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -127,6 +125,10 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="3f0-tY-gaG" firstAttribute="top" secondItem="EJv-uh-Vg9" secondAttribute="bottom" constant="5" id="PjN-R3-Ptn"/>
+                                            <constraint firstItem="3f0-tY-gaG" firstAttribute="leading" secondItem="z9P-6Y-fll" secondAttribute="leading" constant="20" id="QGb-LV-AbE"/>
+                                            <constraint firstItem="EJv-uh-Vg9" firstAttribute="leading" secondItem="z9P-6Y-fll" secondAttribute="leading" constant="20" id="R8Z-Iu-C7O"/>
+                                            <constraint firstItem="EJv-uh-Vg9" firstAttribute="top" secondItem="z9P-6Y-fll" secondAttribute="top" constant="5" id="Xun-9g-G8A"/>
                                             <constraint firstAttribute="height" constant="50" id="ZSj-AN-vuP"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -137,7 +139,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-WM-NJ4">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-WM-NJ4">
                                 <rect key="frame" x="132" y="643" width="150" height="35"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -162,7 +164,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tdG-Ji-2En" secondAttribute="trailing" constant="12" id="g2h-Cb-zvt"/>
                             <constraint firstItem="ycz-34-pNA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k6f-Mb-J8b"/>
                             <constraint firstItem="tdG-Ji-2En" firstAttribute="top" secondItem="ycz-34-pNA" secondAttribute="bottom" constant="30" id="uqr-Wk-C3O"/>
-                            <constraint firstItem="PqG-WM-NJ4" firstAttribute="top" secondItem="tdG-Ji-2En" secondAttribute="bottom" constant="20" id="vv9-9O-pSb"/>
                             <constraint firstItem="tdG-Ji-2En" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="xe7-qn-5bH"/>
                         </constraints>
                     </view>
@@ -170,6 +171,8 @@
                         <outlet property="extraStopAddress" destination="FGo-6w-dGT" id="TwM-XK-Gl1"/>
                         <outlet property="nameOfPlace" destination="zh6-rQ-RqI" id="2Fw-Am-LCL"/>
                         <outlet property="stopAddress" destination="QTL-Ei-3SE" id="bSs-0h-snD"/>
+                        <outlet property="suggestionContainerView" destination="z9P-6Y-fll" id="HUc-1E-Ztb"/>
+                        <outlet property="suggestionLabel" destination="3f0-tY-gaG" id="2ov-9I-cM9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

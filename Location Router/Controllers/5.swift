@@ -17,22 +17,23 @@ class ViewController: UIViewController {
     private lazy var longitude = locationManager.location?.coordinate.latitude
     private var currentPlace: CLPlacemark?
     private let completer = MKLocalSearchCompleter()
+    private let defaultAnimationDuration: TimeInterval = 0.25
     
     @IBOutlet weak var nameOfPlace: UITextField!
     @IBOutlet weak var stopAddress: UITextField!
     @IBOutlet weak var extraStopAddress: UITextField!
+    @IBOutlet weak var suggestionContainerView: UIView!
+    @IBOutlet weak var suggestionLabel: UILabel!
     
-    // MARK: - View life cycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameOfPlace.addTarget(self, action: #selector(changeNameOfPlace(_:)), for: .allEditingEvents)
-        stopAddress.addTarget(self, action: #selector(changeStopAddress(_:)), for: .allEditingEvents)
-        extraStopAddress.addTarget(self, action: #selector(changeExtraStopAddress(_:)), for: .allEditingEvents)
+        addTargetsForFields()
         setupLocation()
         completer.delegate = self
     }
-
+    
     // MARK: - Setup location
     
     private func setupLocation() {
@@ -55,41 +56,49 @@ class ViewController: UIViewController {
         return locationAuthorizationStatus
     }
     
+    // MARK: - Targets for fields
+    
+    private func addTargetsForFields() {
+        nameOfPlace.addTarget(self, action: #selector(changeNameOfPlace(_:)), for: .allEditingEvents)
+        stopAddress.addTarget(self, action: #selector(changeStopAddress(_:)), for: .allEditingEvents)
+        extraStopAddress.addTarget(self, action: #selector(changeExtraStopAddress(_:)), for: .allEditingEvents)
+    }
     
     @objc private func changeNameOfPlace(_ sender: UITextField) {
         textFieldDidChange(sender)
     }
     
     @objc private func changeStopAddress(_ sender: UITextField) {
+        textFieldDidChange(sender)
     }
     
     @objc private func changeExtraStopAddress(_ sender: UITextField) {
+        textFieldDidChange(sender)
     }
     
     private func textFieldDidChange(_ field: UITextField) {
         if field == nameOfPlace && currentPlace != nil {
-          currentPlace = nil
-          field.text = ""
+            currentPlace = nil
+            field.text = ""
         }
         
         guard let query = field.text else {
-          if completer.isSearching {
-            completer.cancel()
-          }
-          return
+            if completer.isSearching {
+                completer.cancel()
+            }
+            return
         }
         
         completer.queryFragment = query
     }
     
-//    private func showSuggestion(_ suggestion: String) {
-//      suggestionLabel.text = suggestion
-//      suggestionContainerTopConstraint.constant = -4 // to hide the top corners
-//
-//      UIView.animate(withDuration: defaultAnimationDuration) {
-//        self.view.layoutIfNeeded()
-//      }
-//    }
+    private func showSuggestion(_ suggestion: String) {
+        suggestionLabel.text = suggestion
+        
+        UIView.animate(withDuration: defaultAnimationDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -143,18 +152,14 @@ extension ViewController: CLLocationManagerDelegate {
 // MARK: - MKLocalSearchCompleterDelegate
 
 extension ViewController: MKLocalSearchCompleterDelegate {
-  func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-    guard let firstResult = completer.results.first else {
-      return
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        guard let firstResult = completer.results.first else {
+            return
+        }
+        showSuggestion(firstResult.title)
     }
     
-    showSuggestion(firstResult.title)
-  }
-
-  func completer(
-    _ completer: MKLocalSearchCompleter,
-    didFailWithError error: Error
-  ) {
-    print("Error suggesting a location: \(error.localizedDescription)")
-  }
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        print("Error suggesting a location: \(error.localizedDescription)")
+    }
 }
