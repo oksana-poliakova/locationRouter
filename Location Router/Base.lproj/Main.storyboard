@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tdG-Ji-2En">
-                                <rect key="frame" x="12" y="223" width="390" height="400"/>
+                                <rect key="frame" x="12" y="223" width="390" height="350"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svk-hg-2DF">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="350"/>
@@ -104,10 +104,17 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="systemRedColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-6Y-fll">
-                                        <rect key="frame" x="0.0" y="350" width="390" height="50"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9P-6Y-fll">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you mean" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJv-uh-Vg9">
                                                 <rect key="frame" x="20" y="5" width="80" height="14.5"/>
@@ -135,12 +142,18 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-WM-NJ4">
-                                <rect key="frame" x="132" y="643" width="150" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-WM-NJ4">
+                                <rect key="frame" x="132" y="593" width="150" height="35"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="HWC-uk-tzA"/>
@@ -161,6 +174,7 @@
                         <constraints>
                             <constraint firstItem="ycz-34-pNA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="JHZ-RO-3bC"/>
                             <constraint firstItem="PqG-WM-NJ4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RhT-E1-7Y0"/>
+                            <constraint firstItem="PqG-WM-NJ4" firstAttribute="top" secondItem="tdG-Ji-2En" secondAttribute="bottom" constant="20" id="XvU-fp-Nxw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tdG-Ji-2En" secondAttribute="trailing" constant="12" id="g2h-Cb-zvt"/>
                             <constraint firstItem="ycz-34-pNA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k6f-Mb-J8b"/>
                             <constraint firstItem="tdG-Ji-2En" firstAttribute="top" secondItem="ycz-34-pNA" secondAttribute="bottom" constant="30" id="uqr-Wk-C3O"/>
@@ -168,6 +182,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calculateRouteButton" destination="PqG-WM-NJ4" id="opI-Tg-UfB"/>
                         <outlet property="extraStopAddress" destination="FGo-6w-dGT" id="TwM-XK-Gl1"/>
                         <outlet property="nameOfPlace" destination="zh6-rQ-RqI" id="2Fw-Am-LCL"/>
                         <outlet property="stopAddress" destination="QTL-Ei-3SE" id="bSs-0h-snD"/>
@@ -186,6 +201,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
